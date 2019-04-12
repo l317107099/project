@@ -10,11 +10,12 @@
    {% block style %}{% endblock style %}
 </head>
 <body>
+{% block goods_base %}
+{% endblock goods_base %}
 
 {% block body %}
 {% endblock body %}
-
-<div class="footer no-mp">
+    <div class="footer no-mp">
 		<div class="foot_link">
 			<a href="#">关于我们</a>
 			<span>|</span>
@@ -27,6 +28,6 @@
 		<p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
 		<p>电话：010-****888    京ICP备*******8号</p>
 	</div>
-
+{% block bottom_style %}{% endblock bottom_style %}
 </body>
 </html>

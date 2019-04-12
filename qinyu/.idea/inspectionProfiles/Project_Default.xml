@@ -6,6 +6,8 @@
         <list>
           <option value="qinyu.urls.django" />
           <option value="apps.user.urls.django" />
+          <option value="apps.goods.models.tinymce" />
+          <option value="apps.goods.views.*" />
         </list>
       </option>
     </inspection_tool>

@@ -1,6 +1,6 @@
 from django.shortcuts import render,reverse,redirect,HttpResponse
 from django.views.generic import View
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 import re
 from django.conf import settings
 
@@ -20,7 +20,7 @@ class LoginView(View):
                 'checked':'checked',
                 'username':username
             }
-            return render(request,'login.html',context)
+            return render(request,'index.html',context)
         else:
             context = {
                 'username' : '',
@@ -38,7 +38,7 @@ class LoginView(View):
         if not all([username, password]):
             context = {'errmessage': '数据不完整'}
             return render(request, 'login.html',context=context)
-        user = authenticate(username,password)
+        user = authenticate(username=username,password=password)
         if user is not None:
             # user = User.objects.get(user = user)
             if user.is_active:
@@ -113,8 +113,12 @@ class ActiveView(View):
             user = User.objects.get(id = user_id)
             user.is_active = 1
             user.save()
-            return redirect(reverse('user:login'))
+            return redirect(reverse('goods:index'))
         except SignatureExpired as e:
             return  HttpResponse('激活链接已过期')
 
 
+class LogoutView(View):
+    def get(self,request):
+        logout(request)
+        return render(request,'goods:index')

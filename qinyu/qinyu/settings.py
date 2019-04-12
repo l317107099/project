@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'apps',
     'user',
+    'goods',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +145,33 @@ EMAIL_HOST_USER = 'l17328181904@163.com'
 EMAIL_HOST_PASSWORD = 'l17328181904'
 #收件人看到的发件人
 EMAIL_FROM = '天天生鲜<l17328181904@163.com>'
+
+TINYMCE_DEFAULT_CONFIG = {
+ 'theme': 'advanced',
+ 'width': 600,
+ 'height': 400
+ }
+
+# Django的缓存配置
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/9",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+# 配置session存储
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+
+# 设置Django的文件存储类
+DEFAULT_FILE_STORAGE='utils.fdfs.storage.FDFSStorage'
+
+# 设置fdfs使用的client.conf文件路径
+FDFS_CLIENT_CONF='./utils/fdfs/client.conf'
+
+# 设置fdfs存储服务器上nginx的IP和端口号
+FDFS_URL='http://www.520xqy.com:8888/'

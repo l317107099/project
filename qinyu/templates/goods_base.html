@@ -11,22 +11,8 @@
 		<div class="header">
 			<div class="welcome fl">欢迎来到天天生鲜!</div>
 			<div class="fr">
-
-{#             {% if user.is_authenticated %}#}
-{##}
-
-{#                    <span>|</span>#}
-{#					<a href="{% url 'user:logout' %}">退出</a>#}
-{#                <a href="{% url 'user:logout' %}">退出</a>#}
-{#				</div>#}
-{##}
-{#                    {% else %}#}
-
-{##}
-{#            {% endif %}#}
                   {% if user.is_authenticated %}
 				<div class="login_btn fl">
-{#					欢迎您：<em>{{ user.username }}</em>#}
 					欢迎您：<em>{{ user.username }}</em>
                     <span>|</span>
 					<a href="{% url 'user:logout' %}">退出</a>

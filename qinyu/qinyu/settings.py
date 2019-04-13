@@ -175,3 +175,6 @@ FDFS_CLIENT_CONF='./utils/fdfs/client.conf'
 
 # 设置fdfs存储服务器上nginx的IP和端口号
 FDFS_URL='http://www.520xqy.com:8888/'
+
+# 配置登录url地址
+LOGIN_URL='/user/login' # /accounts/login?next=/user
